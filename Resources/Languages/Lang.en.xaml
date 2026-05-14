@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <sys:String x:Key="str_AppName">Monitoring Dashboard</sys:String>
+    <sys:String x:Key="str_HeaderSub">Performance monitoring and system management</sys:String>
+    <sys:String x:Key="str_Appearance">Appearance</sys:String>
+    <sys:String x:Key="str_DarkTheme">Dark Theme</sys:String>
+    <sys:String x:Key="str_DarkThemeSub">Use dark visual style</sys:String>
+    <sys:String x:Key="str_AccentColor">Accent Color</sys:String>
+    <sys:String x:Key="str_AccentColorSub">Choose main interface accent color</sys:String>
+    <sys:String x:Key="str_LangRegion">Language &amp; Region</sys:String>
+    <sys:String x:Key="str_LangInterface">Interface Language</sys:String>
+    <sys:String x:Key="str_LangInterfaceSub">Choose application language</sys:String>
+    <sys:String x:Key="str_SettingsName">Settings</sys:String>
+    <sys:String x:Key="str_AutorizationName">Autorization</sys:String>
+    <sys:String x:Key="str_TestsName">Tests</sys:String>
+    <sys:String x:Key="str_LogsName">Logs</sys:String>
+    <sys:String x:Key="str_ColorPurple">Purple</sys:String>
+    <sys:String x:Key="str_ColorCyan">Cyan</sys:String>
+    <sys:String x:Key="str_ColorPink">Pink</sys:String>
+
+</ResourceDictionary>

@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Objects color -->
+    <SolidColorBrush x:Key="BrushMainBg" Color="#121214"/>
+    <SolidColorBrush x:Key="BrushCardBg" Color="#1E1E1F"/>
+    <SolidColorBrush x:Key="BrushInputBg" Color="#2D2D30"/>
+    <SolidColorBrush x:Key="BrushBorder" Color="#3F3F46"/>
+
+    <!-- Text color -->
+    <SolidColorBrush x:Key="BrushTextMain" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="BrushTextMuted" Color="#A1A1AA"/>
+
+</ResourceDictionary>

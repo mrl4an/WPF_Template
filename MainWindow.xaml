@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_Template"
+        xmlns:coreInfra="clr-namespace:WPF_Template.Core.Infrastructure"
         mc:Ignorable="d"
          Title="MyTemplate" 
         Height="500" Width="850"
-        WindowStartupLocation="CenterScreen"
         Background="#1E1E1E">
     
     <WindowChrome.WindowChrome>
@@ -24,11 +24,11 @@
         </Grid.RowDefinitions>
         <Grid x:Name="HeaderPanel" 
       Grid.Row="0" 
-      Background="#2D2D30" 
+      Background="{DynamicResource BrushMainBg}" 
       MouseLeftButtonDown="HeaderPanel_MouseLeftButtonDown">
             
-            <TextBlock Text="name" 
-               Foreground="White" 
+            <TextBlock Text="App name" 
+               Foreground="{DynamicResource BrushTextMain}" 
                VerticalAlignment="Center" 
                Margin="15,0,0,0" 
                FontSize="12"/>
@@ -41,7 +41,7 @@
                 Content="&#xE921;" 
                 FontFamily="Segoe MDL2 Assets" 
                 FontSize="10"
-                Foreground="White"
+                Foreground="{DynamicResource BrushTextMain}"
                 Background="Transparent"
                 BorderThickness="0"
                 WindowChrome.IsHitTestVisibleInChrome="True"
@@ -53,7 +53,7 @@
                 Content="&#xE922;" 
                 FontFamily="Segoe MDL2 Assets" 
                 FontSize="10"
-                Foreground="White"
+                Foreground="{DynamicResource BrushTextMain}"
                 Background="Transparent"
                 BorderThickness="0"
                 WindowChrome.IsHitTestVisibleInChrome="True"
@@ -64,7 +64,7 @@
                 Content="&#xE8BB;" 
                 FontFamily="Segoe MDL2 Assets" 
                 FontSize="10"
-                Foreground="White"
+                Foreground="{DynamicResource BrushTextMain}"
                 Background="Transparent"
                 BorderThickness="0"
                 WindowChrome.IsHitTestVisibleInChrome="True"
@@ -73,29 +73,93 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="ContentGrid" Grid.Row="1" Background="green">
-            <TabControl Grid.Row="1" 
-                    Background="Transparent" 
-                    BorderThickness="0"
-                    Margin="0">
-                <TabItem Header="Main" Padding="10,5">
+        <Grid x:Name="ContentGrid" Grid.Row="1" Background="{DynamicResource BrushMainBg}">
+            <TabControl Grid.Row="1" Style="{StaticResource RadixTabControlStyle}">
+
+                <!-- Authorization -->
+                <TabItem Header="{DynamicResource str_AutorizationName}" coreInfra:TabIconHelper.Icon="&#xE785;">
+                    <Grid>
+                        <TextBlock Text="Authorization Content" Foreground="{DynamicResource BrushTextMuted}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </TabItem>
+
+                <!-- Tests -->
+                <TabItem Header="{DynamicResource str_TestsName}" coreInfra:TabIconHelper.Icon="&#xE945;">
+                    <Grid>
+                        <TextBlock Text="Tests Content" Foreground="{DynamicResource BrushTextMuted}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </TabItem>
+
+                <!-- Logs -->
+                <TabItem Header="{DynamicResource str_LogsName}" coreInfra:TabIconHelper.Icon="&#xE8A5;">
+                    <Grid>
+                        <TextBlock Text="Logs Content" Foreground="{DynamicResource BrushTextMuted}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </TabItem>
+
+                <!-- Settings -->
+                <TabItem Header="{DynamicResource str_SettingsName}" coreInfra:TabIconHelper.Icon="&#xE713;" Padding="14,6">
                     <ScrollViewer VerticalScrollBarVisibility="Auto">
-                        <Grid Background="#252526">
-                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="text" 
-                                   Foreground="White" 
-                                   FontSize="20" 
-                                   HorizontalAlignment="Center" 
-                                   Margin="0,0,0,1000"/>
-                                <TextBlock Text="Its template" 
-                                   Foreground="Gray" 
-                                   HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Grid>
+                        
+                        <StackPanel MaxWidth="650" Margin="24,16,24,24">
+
+                            <!-- general -->
+                            <Border Background="{DynamicResource BrushCardBg}" BorderBrush="{DynamicResource BrushBorder}" BorderThickness="1" CornerRadius="8" Padding="24" Margin="0,0,0,24">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource str_Appearance}" Foreground="{DynamicResource BrushTextMain}" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,16"/>
+
+                                    <Grid Margin="0,0,0,16">
+                                        <StackPanel HorizontalAlignment="Left">
+                                            <TextBlock Text="{DynamicResource str_DarkTheme}" Foreground="{DynamicResource BrushTextMain}" FontWeight="Medium" FontSize="14"/>
+                                            <TextBlock Text="{DynamicResource str_DarkThemeSub}" Foreground="{DynamicResource BrushTextMuted}" FontSize="12" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                        <CheckBox HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource TailwindSwitchStyle}" IsChecked="{Binding IsDarkTheme, Mode=TwoWay}"/>
+                                    </Grid>
+
+                                    <Border BorderBrush="{DynamicResource BrushBorder}" BorderThickness="0,1,0,0" Margin="0,4,0,16"/>
+
+                                    <!-- Accent color -->
+                                    <Grid>
+                                        <StackPanel HorizontalAlignment="Left">
+                                            <TextBlock Text="{DynamicResource str_AccentColor}" Foreground="{DynamicResource BrushTextMain}" FontWeight="Medium" FontSize="14"/>
+                                            <TextBlock Text="{DynamicResource str_AccentColorSub}" Foreground="{DynamicResource BrushTextMuted}" FontSize="12" Margin="0,2,0,0"/>
+                                        </StackPanel>
+
+                                        <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Width="160" Height="36" Style="{StaticResource TailwindComboBoxStyle}" SelectedValuePath="Tag" SelectedValue="{Binding SelectedAccent, Mode=TwoWay}">
+                                            <ComboBoxItem Content="{DynamicResource str_ColorPurple}" Tag="purple"/>
+                                            <ComboBoxItem Content="{DynamicResource str_ColorCyan}" Tag="cyan"/>
+                                            <ComboBoxItem Content="{DynamicResource str_ColorPink}" Tag="pink"/>
+                                        </ComboBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+
+                            <!-- Language and region -->
+                            <Border Background="{DynamicResource BrushCardBg}" BorderBrush="{DynamicResource BrushBorder}" BorderThickness="1" CornerRadius="8" Padding="24">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource str_LangRegion}" Foreground="{DynamicResource BrushTextMain}" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,16"/>
+                                    <Grid>
+                                        <StackPanel HorizontalAlignment="Left">
+                                            <TextBlock Text="{DynamicResource str_LangInterface}" Foreground="{DynamicResource BrushTextMain}" FontWeight="Medium" FontSize="14"/>
+                                            <TextBlock Text="{DynamicResource str_LangInterfaceSub}" Foreground="{DynamicResource BrushTextMuted}" FontSize="12" Margin="0,2,0,0"/>
+                                        </StackPanel>
+                                        <ComboBox HorizontalAlignment="Right" VerticalAlignment="Center" Width="160" Height="36" Style="{StaticResource TailwindComboBoxStyle}" SelectedValuePath="Tag" SelectedValue="{Binding SelectedLanguage, Mode=TwoWay}">
+                                            <ComboBoxItem Content="Русский" Tag="ru"/>
+                                            <ComboBoxItem Content="English" Tag="en"/>
+                                        </ComboBox>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+
+
+                        </StackPanel>
                     </ScrollViewer>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Grid x:Name="FooterPanel" Grid.Row="2" Background="red"></Grid>
+
+        <Grid x:Name="FooterPanel" Grid.Row="2" Background="{DynamicResource BrushCardBg}">
+            <TextBlock Text="" Foreground="Gray" FontSize="11" VerticalAlignment="Center" Margin="15,0,0,0"/>
+        </Grid>
     </Grid>
 </Window>

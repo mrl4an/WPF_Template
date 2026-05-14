@@ -2,11 +2,16 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WPF_Template"
-             StartupUri="MainWindow.xaml">
+             Startup="Application_Startup">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resourses/Styles/Styles.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Controls.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Styles.xaml"/>
+
+                <ResourceDictionary Source="/Resources/Languages/Lang.en.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Themes/Dark.xaml"/>
+                <ResourceDictionary Source="/Resources/Styles/Accents/Purple.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

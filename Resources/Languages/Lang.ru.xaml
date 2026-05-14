@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <sys:String x:Key="str_AppName">Панель мониторинга</sys:String>
+    <sys:String x:Key="str_HeaderSub">Мониторинг производительности и управление системой</sys:String>
+    <sys:String x:Key="str_Appearance">Внешний вид</sys:String>
+    <sys:String x:Key="str_DarkTheme">Темная тема</sys:String>
+    <sys:String x:Key="str_DarkThemeSub">Использовать темное оформление</sys:String>
+    <sys:String x:Key="str_AccentColor">Акцентный цвет</sys:String>
+    <sys:String x:Key="str_AccentColorSub">Выберите основной цвет интерфейса</sys:String>
+    <sys:String x:Key="str_LangRegion">Язык и регион</sys:String>
+    <sys:String x:Key="str_LangInterface">Язык интерфейса</sys:String>
+    <sys:String x:Key="str_LangInterfaceSub">Выберите язык приложения</sys:String>
+    <sys:String x:Key="str_SettingsName">Настройки</sys:String>
+    <sys:String x:Key="str_AutorizationName">Авторизация</sys:String>
+    <sys:String x:Key="str_TestsName">Тесты</sys:String>
+    <sys:String x:Key="str_LogsName">Логи</sys:String>
+    <sys:String x:Key="str_ColorPurple">Фиолетовый</sys:String>
+    <sys:String x:Key="str_ColorCyan">Бирюзовый</sys:String>
+    <sys:String x:Key="str_ColorPink">Розовый</sys:String>
+
+</ResourceDictionary>
